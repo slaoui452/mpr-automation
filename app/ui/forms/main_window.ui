@@ -1,0 +1,1059 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>980</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>760</width>
+    <height>620</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>MPR-automation</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="rootLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QFrame" name="headerBar">
+      <property name="role" stdset="0">
+       <string>header</string>
+      </property>
+      <layout class="QHBoxLayout" name="headerLayout">
+       <property name="spacing">
+        <number>14</number>
+       </property>
+       <property name="leftMargin">
+        <number>24</number>
+       </property>
+       <property name="topMargin">
+        <number>14</number>
+       </property>
+       <property name="rightMargin">
+        <number>24</number>
+       </property>
+       <property name="bottomMargin">
+        <number>14</number>
+       </property>
+       <item>
+        <widget class="LogoMark" name="logoMark">
+         <property name="minimumSize">
+          <size>
+           <width>34</width>
+           <height>34</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>34</width>
+           <height>34</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="headerTextLayout">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="companyLabel">
+           <property name="text">
+            <string>SOCIÉTÉ GÉNÉRALE</string>
+           </property>
+           <property name="role" stdset="0">
+            <string>company</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="titleLabel">
+           <property name="text">
+            <string>MPR-automation</string>
+           </property>
+           <property name="role" stdset="0">
+            <string>appTitle</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="headerSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="versionLabel">
+         <property name="text">
+          <string>v0.0.0</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignBottom|Qt::AlignRight|Qt::AlignTrailing</set>
+         </property>
+         <property name="role" stdset="0">
+          <string>appVersion</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QFrame" name="accentLine">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>3</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>3</height>
+       </size>
+      </property>
+      <property name="role" stdset="0">
+       <string>accentLine</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QSplitter" name="splitter">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="handleWidth">
+       <number>3</number>
+      </property>
+      <property name="childrenCollapsible">
+       <bool>false</bool>
+      </property>
+      <widget class="QScrollArea" name="contentScroll">
+       <property name="frameShape">
+        <enum>QFrame::NoFrame</enum>
+       </property>
+       <property name="widgetResizable">
+        <bool>true</bool>
+       </property>
+       <widget class="QWidget" name="contentWidget">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>980</width>
+          <height>600</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="contentLayout" stretch="0,0,0,0,0,1">
+         <property name="spacing">
+          <number>8</number>
+         </property>
+         <property name="leftMargin">
+          <number>24</number>
+         </property>
+         <property name="topMargin">
+          <number>20</number>
+         </property>
+         <property name="rightMargin">
+          <number>24</number>
+         </property>
+         <property name="bottomMargin">
+          <number>16</number>
+         </property>
+         <item>
+          <layout class="QHBoxLayout" name="parametersHeader">
+           <property name="spacing">
+            <number>8</number>
+           </property>
+           <item>
+            <widget class="QFrame" name="parametersMarker">
+             <property name="minimumSize">
+              <size>
+               <width>8</width>
+               <height>8</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>8</width>
+               <height>8</height>
+              </size>
+             </property>
+             <property name="role" stdset="0">
+              <string>sectionMarker</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="parametersTitle">
+             <property name="text">
+              <string>01 — PARAMETERS</string>
+             </property>
+             <property name="role" stdset="0">
+              <string>sectionTitle</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="parametersHeaderSpacer">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>10</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QFrame" name="parametersCard">
+           <property name="role" stdset="0">
+            <string>card</string>
+           </property>
+           <layout class="QGridLayout" name="parametersLayout" columnstretch="0,1" columnminimumwidth="120,0">
+            <property name="leftMargin">
+             <number>18</number>
+            </property>
+            <property name="topMargin">
+             <number>4</number>
+            </property>
+            <property name="rightMargin">
+             <number>18</number>
+            </property>
+            <property name="bottomMargin">
+             <number>4</number>
+            </property>
+            <property name="horizontalSpacing">
+             <number>16</number>
+            </property>
+            <property name="verticalSpacing">
+             <number>0</number>
+            </property>
+            <item row="0" column="0" alignment="Qt::AlignLeft|Qt::AlignTop">
+             <widget class="QLabel" name="dateLabel">
+              <property name="text">
+               <string>Reference date</string>
+              </property>
+              <property name="role" stdset="0">
+               <string>fieldLabel</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <layout class="QVBoxLayout" name="dateFieldLayout">
+              <property name="spacing">
+               <number>10</number>
+              </property>
+              <property name="topMargin">
+               <number>12</number>
+              </property>
+              <property name="bottomMargin">
+               <number>14</number>
+              </property>
+              <item>
+               <layout class="QHBoxLayout" name="dateInputRow">
+                <property name="spacing">
+                 <number>16</number>
+                </property>
+                <item>
+                 <widget class="QDateEdit" name="dateEdit">
+                  <property name="minimumSize">
+                   <size>
+                    <width>210</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="displayFormat">
+                   <string>ddd dd/MM/yyyy</string>
+                  </property>
+                  <property name="calendarPopup">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="todayButton">
+                  <property name="toolTip">
+                   <string>Go back to today</string>
+                  </property>
+                  <property name="text">
+                   <string>Today</string>
+                  </property>
+                  <property name="icon">
+                   <iconset>
+                    <normaloff>../theme/icons/refresh.svg</normaloff>../theme/icons/refresh.svg</iconset>
+                  </property>
+                  <property name="role" stdset="0">
+                   <string>link</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="dateInputSpacer">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>10</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="dateMessageRow">
+                <property name="spacing">
+                 <number>10</number>
+                </property>
+                <item>
+                 <widget class="QLabel" name="dateBadge">
+                  <property name="text">
+                   <string>TODAY</string>
+                  </property>
+                  <property name="role" stdset="0">
+                   <string>badge</string>
+                  </property>
+                  <property name="tone" stdset="0">
+                   <string>today</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="dateMessage">
+                  <property name="text">
+                   <string>Tuesday 29 September 2026</string>
+                  </property>
+                  <property name="role" stdset="0">
+                   <string>dateMessage</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="dateMessageSpacer">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>10</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+            <item row="1" column="0" colspan="2">
+             <widget class="QFrame" name="dateDivider">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>1</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>1</height>
+               </size>
+              </property>
+              <property name="role" stdset="0">
+               <string>divider</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0" alignment="Qt::AlignLeft|Qt::AlignTop">
+             <widget class="QLabel" name="optionLabel">
+              <property name="text">
+               <string>Option</string>
+              </property>
+              <property name="role" stdset="0">
+               <string>fieldLabel</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <layout class="QVBoxLayout" name="optionFieldLayout">
+              <property name="topMargin">
+               <number>12</number>
+              </property>
+              <property name="bottomMargin">
+               <number>12</number>
+              </property>
+              <item>
+               <widget class="QComboBox" name="optionCombo">
+                <property name="placeholderText">
+                 <string>Select an option…</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="3" column="0" colspan="2">
+             <widget class="QFrame" name="optionDivider">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>1</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>1</height>
+               </size>
+              </property>
+              <property name="role" stdset="0">
+               <string>divider</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="0" alignment="Qt::AlignLeft|Qt::AlignTop">
+             <widget class="QLabel" name="fileLabel">
+              <property name="text">
+               <string>Input file</string>
+              </property>
+              <property name="role" stdset="0">
+               <string>fieldLabel</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="1">
+             <layout class="QVBoxLayout" name="fileFieldLayout">
+              <property name="topMargin">
+               <number>12</number>
+              </property>
+              <property name="bottomMargin">
+               <number>14</number>
+              </property>
+              <item>
+               <widget class="FileDropZone" name="fileDropZone">
+                <layout class="QVBoxLayout" name="fileDropLayout">
+                 <property name="spacing">
+                  <number>6</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>14</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>12</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>14</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>12</number>
+                 </property>
+                 <item>
+                  <widget class="QStackedWidget" name="fileStateStack">
+                   <property name="currentIndex">
+                    <number>0</number>
+                   </property>
+                   <widget class="QWidget" name="fileEmptyPage">
+                    <layout class="QVBoxLayout" name="fileEmptyLayout">
+                     <property name="spacing">
+                      <number>6</number>
+                     </property>
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <item>
+                      <layout class="QHBoxLayout" name="fileDropRow">
+                       <property name="spacing">
+                        <number>10</number>
+                       </property>
+                       <item>
+                        <spacer name="fileDropLeftSpacer">
+                         <property name="orientation">
+                          <enum>Qt::Horizontal</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>20</width>
+                           <height>10</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
+                       <item>
+                        <widget class="QLabel" name="fileIcon">
+                         <property name="minimumSize">
+                          <size>
+                           <width>24</width>
+                           <height>24</height>
+                          </size>
+                         </property>
+                         <property name="maximumSize">
+                          <size>
+                           <width>24</width>
+                           <height>24</height>
+                          </size>
+                         </property>
+                         <property name="pixmap">
+                          <pixmap>../theme/icons/file_excel.svg</pixmap>
+                         </property>
+                         <property name="scaledContents">
+                          <bool>true</bool>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QLabel" name="fileDropLabel">
+                         <property name="text">
+                          <string>Drop an Excel file here or</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QPushButton" name="fileBrowseButton">
+                         <property name="toolTip">
+                          <string>Choose a file (Ctrl+O)</string>
+                         </property>
+                         <property name="text">
+                          <string>Browse…</string>
+                         </property>
+                         <property name="role" stdset="0">
+                          <string>secondary</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <spacer name="fileDropRightSpacer">
+                         <property name="orientation">
+                          <enum>Qt::Horizontal</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>20</width>
+                           <height>10</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
+                      </layout>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="fileHintLabel">
+                       <property name="text">
+                        <string>.xlsx · .xlsm · .xls  —  Ctrl+O</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                       <property name="role" stdset="0">
+                        <string>hint</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                   <widget class="QWidget" name="fileLoadedPage">
+                    <layout class="QHBoxLayout" name="fileLoadedLayout">
+                     <property name="spacing">
+                      <number>10</number>
+                     </property>
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <item>
+                      <widget class="QLabel" name="fileLoadedIcon">
+                       <property name="minimumSize">
+                        <size>
+                         <width>24</width>
+                         <height>24</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>24</width>
+                         <height>24</height>
+                        </size>
+                       </property>
+                       <property name="pixmap">
+                        <pixmap>../theme/icons/file_excel.svg</pixmap>
+                       </property>
+                       <property name="scaledContents">
+                        <bool>true</bool>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="fileNameLabel">
+                       <property name="text">
+                        <string>report.xlsx</string>
+                       </property>
+                       <property name="role" stdset="0">
+                        <string>fileName</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="fileMetaLabel">
+                       <property name="text">
+                        <string>245 KB · modified 28/09/2026 14:02</string>
+                       </property>
+                       <property name="role" stdset="0">
+                        <string>muted</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <spacer name="fileLoadedSpacer">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>40</width>
+                         <height>10</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="fileChangeButton">
+                       <property name="toolTip">
+                        <string>Choose another file (Ctrl+O)</string>
+                       </property>
+                       <property name="text">
+                        <string>Change…</string>
+                       </property>
+                       <property name="role" stdset="0">
+                        <string>link</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="fileClearButton">
+                       <property name="toolTip">
+                        <string>Remove the file</string>
+                       </property>
+                       <property name="text">
+                        <string>Remove</string>
+                       </property>
+                       <property name="role" stdset="0">
+                        <string>link</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="fileErrorLabel">
+                   <property name="text">
+                    <string>'notes.txt' isn't an Excel file. Use .xlsx, .xlsm, .xls.</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                   <property name="wordWrap">
+                    <bool>true</bool>
+                   </property>
+                   <property name="role" stdset="0">
+                    <string>error</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <spacer name="sectionGap">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Fixed</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>10</width>
+             <height>14</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="actionsHeader">
+           <property name="spacing">
+            <number>8</number>
+           </property>
+           <item>
+            <widget class="QFrame" name="actionsMarker">
+             <property name="minimumSize">
+              <size>
+               <width>8</width>
+               <height>8</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>8</width>
+               <height>8</height>
+              </size>
+             </property>
+             <property name="role" stdset="0">
+              <string>sectionMarker</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="actionsTitle">
+             <property name="text">
+              <string>02 — ACTIONS</string>
+             </property>
+             <property name="role" stdset="0">
+              <string>sectionTitle</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="actionsHeaderSpacer">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>10</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="tilesLayout">
+           <property name="spacing">
+            <number>12</number>
+           </property>
+           <item>
+            <widget class="ActionTile" name="tileAction1">
+             <property name="minimumSize">
+              <size>
+               <width>200</width>
+               <height>128</height>
+              </size>
+             </property>
+             <property name="actionId" stdset="0">
+              <string>action_1</string>
+             </property>
+             <property name="title" stdset="0">
+              <string>Action 1</string>
+             </property>
+             <property name="description" stdset="0">
+              <string>Short description of what this action does.</string>
+             </property>
+             <property name="needs" stdset="0">
+              <string>date</string>
+             </property>
+             <property name="shortcut" stdset="0">
+              <string>Ctrl+1</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="ActionTile" name="tileAction2">
+             <property name="minimumSize">
+              <size>
+               <width>200</width>
+               <height>128</height>
+              </size>
+             </property>
+             <property name="actionId" stdset="0">
+              <string>action_2</string>
+             </property>
+             <property name="title" stdset="0">
+              <string>Action 2</string>
+             </property>
+             <property name="description" stdset="0">
+              <string>Short description of what this action does.</string>
+             </property>
+             <property name="needs" stdset="0">
+              <string>date, option</string>
+             </property>
+             <property name="shortcut" stdset="0">
+              <string>Ctrl+2</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="ActionTile" name="tileAction3">
+             <property name="minimumSize">
+              <size>
+               <width>200</width>
+               <height>128</height>
+              </size>
+             </property>
+             <property name="actionId" stdset="0">
+              <string>action_3</string>
+             </property>
+             <property name="title" stdset="0">
+              <string>Action 3</string>
+             </property>
+             <property name="description" stdset="0">
+              <string>Short description of what this action does.</string>
+             </property>
+             <property name="needs" stdset="0">
+              <string>date, option, file</string>
+             </property>
+             <property name="shortcut" stdset="0">
+              <string>Ctrl+3</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <spacer name="contentBottomSpacer">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>10</width>
+             <height>10</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="ActivityPanel" name="activityPanel">
+       <layout class="QVBoxLayout" name="activityLayout">
+        <property name="spacing">
+         <number>6</number>
+        </property>
+        <property name="leftMargin">
+         <number>24</number>
+        </property>
+        <property name="topMargin">
+         <number>8</number>
+        </property>
+        <property name="rightMargin">
+         <number>24</number>
+        </property>
+        <property name="bottomMargin">
+         <number>8</number>
+        </property>
+        <item>
+         <layout class="QHBoxLayout" name="activityHeader">
+          <property name="spacing">
+           <number>12</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="activityTitle">
+            <property name="text">
+             <string>ACTIVITY</string>
+            </property>
+            <property name="role" stdset="0">
+             <string>sectionTitle</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="activityStatusDot">
+            <property name="minimumSize">
+             <size>
+              <width>7</width>
+              <height>7</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>7</width>
+              <height>7</height>
+             </size>
+            </property>
+            <property name="role" stdset="0">
+             <string>statusDot</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="activityStatusLabel">
+            <property name="text">
+             <string>Ready</string>
+            </property>
+            <property name="role" stdset="0">
+             <string>muted</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="activityHeaderSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>10</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="activityOpenLogButton">
+            <property name="toolTip">
+             <string>Open the full log file</string>
+            </property>
+            <property name="text">
+             <string>Open log file</string>
+            </property>
+            <property name="role" stdset="0">
+             <string>link</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="activityClearButton">
+            <property name="toolTip">
+             <string>Clear the list (the log file is kept)</string>
+            </property>
+            <property name="text">
+             <string>Clear</string>
+            </property>
+            <property name="role" stdset="0">
+             <string>link</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="activityToggleButton">
+            <property name="autoRaise">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QPlainTextEdit" name="activityLog">
+          <property name="frameShape">
+           <enum>QFrame::NoFrame</enum>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+          <property name="placeholderText">
+           <string>Runs and log messages appear here.</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>LogoMark</class>
+   <extends>QWidget</extends>
+   <header>app.ui.widgets.logo_mark</header>
+  </customwidget>
+  <customwidget>
+   <class>FileDropZone</class>
+   <extends>QFrame</extends>
+   <header>app.ui.widgets.file_drop_zone</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>ActionTile</class>
+   <extends>QFrame</extends>
+   <header>app.ui.widgets.action_tile</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>ActivityPanel</class>
+   <extends>QFrame</extends>
+   <header>app.ui.widgets.activity_panel</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>dateEdit</tabstop>
+  <tabstop>todayButton</tabstop>
+  <tabstop>optionCombo</tabstop>
+  <tabstop>fileBrowseButton</tabstop>
+  <tabstop>fileChangeButton</tabstop>
+  <tabstop>fileClearButton</tabstop>
+  <tabstop>tileAction1</tabstop>
+  <tabstop>tileAction2</tabstop>
+  <tabstop>tileAction3</tabstop>
+  <tabstop>activityOpenLogButton</tabstop>
+  <tabstop>activityClearButton</tabstop>
+  <tabstop>activityToggleButton</tabstop>
+  <tabstop>activityLog</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

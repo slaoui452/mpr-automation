@@ -1,0 +1,1 @@
+"""MPR-automation desktop application."""

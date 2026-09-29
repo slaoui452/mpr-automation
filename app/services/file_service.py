@@ -1,32 +1,33 @@
-"""Validation of the file chosen by the user."""
+"""Checks the file chosen in the drop zone before any action can use it."""
 from __future__ import annotations
 
 import logging
+from datetime import datetime
 from pathlib import Path
+from typing import Iterable
 
 from app import config
-from app.models import FileInfo
+from app.core.errors import FileValidationError
+from app.core.models import FileInfo
 
 logger = logging.getLogger(__name__)
 
 
-class FileValidationError(ValueError):
-    """Raised when the selected file cannot be used. The message is shown to the user."""
+def validate_file(path: str | Path, allowed_extensions: Iterable[str] = config.EXCEL_EXTENSIONS) -> FileInfo:
+    """Returns the file's details, or raises FileValidationError with a message for the user."""
+    file = Path(path)
+    logger.debug("Validating %s", file)
+    allowed = tuple(ext.lower() for ext in allowed_extensions)
 
+    if file.suffix.lower() not in allowed:
+        raise FileValidationError(f"'{file.name}' isn't an Excel file. Use {', '.join(allowed)}.")
+    if not file.is_file():
+        raise FileValidationError(f"'{file.name}' can't be found. It may have been moved or deleted.")
+    stat = file.stat()
+    if stat.st_size == 0:
+        raise FileValidationError(f"'{file.name}' is empty.")
 
-def validate_file(path: str | Path, allowed_extensions=config.EXCEL_EXTENSIONS) -> FileInfo:
-    file_path = Path(path)
-    logger.debug("Validating file %s", file_path)
+    # TODO: add your own checks here, for example expected sheets or required columns:
+    #     raise FileValidationError("Sheet 'Data' is missing.")
 
-    if not file_path.exists():
-        raise FileValidationError("The file does not exist.")
-    if not file_path.is_file():
-        raise FileValidationError("Please select a file, not a folder.")
-    if file_path.suffix.lower() not in allowed_extensions:
-        raise FileValidationError(
-            f"Unsupported file type '{file_path.suffix or 'none'}'. "
-            f"Expected an Excel file ({', '.join(allowed_extensions)})."
-        )
-
-    # TODO: add content checks here (expected sheets, columns, not locked, ...).
-    return FileInfo(path=file_path, size_bytes=file_path.stat().st_size)
+    return FileInfo(path=file, size_bytes=stat.st_size, modified=datetime.fromtimestamp(stat.st_mtime))

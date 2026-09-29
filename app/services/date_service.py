@@ -1,29 +1,40 @@
-"""Builds the message displayed next to the reference date.
+"""Builds the message shown under the reference date.
 
-Placeholder rule: past / today / future. Replace with your own business rules.
+Starter rule: how far the date is from today ("TODAY", "YESTERDAY", "3 DAYS AGO", "IN 2 DAYS").
+Replace get_date_message() with your own rules (business days, cut-offs, holidays, ...).
 """
 from __future__ import annotations
 
 import logging
 from datetime import date
 
-from app.models import DateMessage, MessageLevel
+from app.core.models import DateMessage, Tone
 
 logger = logging.getLogger(__name__)
+
+# English names, whatever the Windows language settings are.
+_WEEKDAYS = ("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
+_MONTHS = ("January", "February", "March", "April", "May", "June",
+           "July", "August", "September", "October", "November", "December")
 
 
 def get_date_message(selected: date, today: date | None = None) -> DateMessage:
     today = today or date.today()
     delta = (selected - today).days
-    logger.debug("Date message for %s (delta=%d days)", selected, delta)
+    logger.debug("Date message for %s (%+d days)", selected, delta)
+    text = long_date(selected)
 
-    # TODO: replace with the real rule (business days, cut-off, holidays, ...).
     if delta == 0:
-        return DateMessage("TODAY", "Today — current business day", MessageLevel.TODAY)
+        return DateMessage("TODAY", text, Tone.TODAY)
+    if delta == -1:
+        return DateMessage("YESTERDAY", text, Tone.PAST)
+    if delta == 1:
+        return DateMessage("TOMORROW", text, Tone.FUTURE)
     if delta < 0:
-        return DateMessage("PAST", f"{_days(-delta)} in the past", MessageLevel.PAST)
-    return DateMessage("FUTURE", f"{_days(delta)} in the future", MessageLevel.FUTURE)
+        return DateMessage(f"{-delta} DAYS AGO", text, Tone.PAST)
+    return DateMessage(f"IN {delta} DAYS", text, Tone.FUTURE)
 
 
-def _days(count: int) -> str:
-    return f"{count} day" if count == 1 else f"{count} days"
+def long_date(value: date) -> str:
+    """'Tuesday 29 September 2026'"""
+    return f"{_WEEKDAYS[value.weekday()]} {value.day} {_MONTHS[value.month - 1]} {value.year}"

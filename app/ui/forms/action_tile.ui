@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ActionTileForm</class>
+ <widget class="QFrame" name="ActionTileForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>260</width>
+    <height>140</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>200</width>
+    <height>128</height>
+   </size>
+  </property>
+  <layout class="QVBoxLayout" name="tileLayout">
+   <property name="spacing">
+    <number>6</number>
+   </property>
+   <property name="leftMargin">
+    <number>14</number>
+   </property>
+   <property name="topMargin">
+    <number>12</number>
+   </property>
+   <property name="rightMargin">
+    <number>14</number>
+   </property>
+   <property name="bottomMargin">
+    <number>12</number>
+   </property>
+   <item>
+    <layout class="QHBoxLayout" name="tileTitleRow">
+     <property name="spacing">
+      <number>8</number>
+     </property>
+     <item>
+      <widget class="QFrame" name="tileMarker">
+       <property name="minimumSize">
+        <size>
+         <width>8</width>
+         <height>8</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>8</width>
+         <height>8</height>
+        </size>
+       </property>
+       <property name="role" stdset="0">
+        <string>tileMarker</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="tileTitle">
+       <property name="text">
+        <string>ACTION</string>
+       </property>
+       <property name="role" stdset="0">
+        <string>tileTitle</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="tileTitleSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>10</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QLabel" name="tileDescription">
+     <property name="text">
+      <string>Short description of what this action does.</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+     <property name="role" stdset="0">
+      <string>tileDescription</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="tileNeeds">
+     <property name="text">
+      <string>Needs: input file</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+     <property name="role" stdset="0">
+      <string>tileNeeds</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QProgressBar" name="tileProgress">
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>6</height>
+      </size>
+     </property>
+     <property name="value">
+      <number>64</number>
+     </property>
+     <property name="textVisible">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="tileProgressRow">
+     <item>
+      <widget class="QLabel" name="tileProgressText">
+       <property name="text">
+        <string>Step 13/20</string>
+       </property>
+       <property name="role" stdset="0">
+        <string>muted</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="tileProgressSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>10</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QLabel" name="tileProgressPercent">
+       <property name="text">
+        <string>64%</string>
+       </property>
+       <property name="role" stdset="0">
+        <string>tilePercent</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <spacer name="tileSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>10</width>
+       <height>4</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="tileFooter">
+     <item>
+      <widget class="QPushButton" name="tileCancelButton">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="toolTip">
+        <string>Stop this action (Esc)</string>
+       </property>
+       <property name="text">
+        <string>✕  Cancel (Esc)</string>
+       </property>
+       <property name="role" stdset="0">
+        <string>link</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="tileFooterSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>10</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QLabel" name="tileShortcut">
+       <property name="text">
+        <string>Ctrl+1</string>
+       </property>
+       <property name="role" stdset="0">
+        <string>kbd</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,368 @@
+/* MPR-automation, Société Générale light theme.
+ *
+ * Words such as red, border or muted used in the rules are colour tokens from tokens.py;
+ * theme.py replaces them when the app starts. Write a literal dollar sign as two of them.
+ * Most rules match the dynamic property "role", which is set on the widgets in Qt Designer.
+ */
+
+/* ---- Window ------------------------------------------------------------------ */
+QMainWindow, #contentWidget {
+    background: $canvas;
+}
+QScrollArea#contentScroll {
+    background: $canvas;
+    border: none;
+}
+QToolTip {
+    background: $black;
+    color: $white;
+    border: none;
+    padding: 4px 8px;
+}
+
+/* ---- Header ------------------------------------------------------------------ */
+QFrame[role="header"] {
+    background: $black;
+    border: none;
+}
+QLabel[role="company"] {
+    color: $white;
+    font-size: 8pt;
+    font-weight: 600;
+}
+QLabel[role="appTitle"] {
+    color: $white;
+    font-size: 15pt;
+    font-weight: 600;
+}
+QLabel[role="appVersion"] {
+    color: $border_strong;
+    font-size: 8pt;
+}
+QFrame[role="accentLine"] {
+    background: $red;
+    border: none;
+}
+
+/* ---- Sections, cards, labels ---------------------------------------------------- */
+QFrame[role="sectionMarker"] {
+    background: $red;
+    border: none;
+}
+QLabel[role="sectionTitle"] {
+    color: $text;
+    font-size: 8pt;
+    font-weight: 700;
+}
+QFrame[role="card"] {
+    background: $surface;
+    border: 1px solid $border;
+}
+QFrame[role="divider"] {
+    background: $divider;
+    border: none;
+}
+QLabel[role="fieldLabel"] {
+    color: $muted;
+    padding-top: 18px;
+}
+QLabel[role="hint"], QLabel[role="muted"] {
+    color: $muted;
+    font-size: 9pt;
+}
+QLabel[role="error"] {
+    color: $error;
+    font-size: 9pt;
+}
+QLabel[role="fileName"] {
+    font-weight: 600;
+}
+
+/* ---- Date message --------------------------------------------------------------- */
+QLabel[role="badge"] {
+    color: $white;
+    background: $black;
+    font-size: 8pt;
+    font-weight: 700;
+    padding: 3px 8px;
+}
+QLabel[role="badge"][tone="today"] {
+    background: $red;
+}
+QLabel[role="badge"][tone="future"] {
+    background: $muted;
+}
+QLabel[role="dateMessage"] {
+    font-weight: 600;
+}
+
+/* ---- Inputs --------------------------------------------------------------------- */
+QDateEdit, QComboBox {
+    background: $surface;
+    border: 1px solid $border_strong;
+    padding: 6px 10px;
+    min-height: 22px;
+    selection-background-color: $red;
+    selection-color: $white;
+}
+QDateEdit:hover, QComboBox:hover {
+    border-color: $text;
+}
+QDateEdit:focus, QComboBox:focus {
+    border-color: $red;
+}
+QDateEdit:disabled, QComboBox:disabled {
+    background: $canvas;
+    color: $disabled_text;
+    border-color: $border;
+}
+QComboBox[placeholder="true"] {
+    color: $muted;
+}
+QDateEdit::drop-down, QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: center right;
+    width: 28px;
+    border: none;
+    background: transparent;
+}
+QDateEdit::down-arrow, QComboBox::down-arrow {
+    image: url($icons/chevron_down.svg);
+    width: 14px;
+    height: 14px;
+}
+QComboBox QAbstractItemView {
+    background: $surface;
+    color: $text;
+    border: 1px solid $border_strong;
+    outline: 0;
+    selection-background-color: $red;
+    selection-color: $white;
+}
+
+/* ---- Calendar popup ------------------------------------------------------------- */
+QCalendarWidget QWidget#qt_calendar_navigationbar {
+    background: $black;
+}
+QCalendarWidget QToolButton {
+    color: $white;
+    background: transparent;
+    font-weight: 600;
+    padding: 4px 8px;
+    border: none;
+}
+QCalendarWidget QToolButton:hover {
+    background: $red;
+}
+QCalendarWidget QToolButton#qt_calendar_prevmonth {
+    qproperty-icon: url($icons/chevron_left_white.svg);
+}
+QCalendarWidget QToolButton#qt_calendar_nextmonth {
+    qproperty-icon: url($icons/chevron_right_white.svg);
+}
+QCalendarWidget QToolButton::menu-indicator {
+    image: none;
+}
+QCalendarWidget QMenu {
+    background: $surface;
+    color: $text;
+}
+QCalendarWidget QSpinBox {
+    background: $surface;
+    color: $text;
+    selection-background-color: $red;
+}
+QCalendarWidget QAbstractItemView:enabled {
+    background: $surface;
+    color: $text;
+    selection-background-color: $red;
+    selection-color: $white;
+}
+QCalendarWidget QAbstractItemView:disabled {
+    color: $disabled_text;
+}
+
+/* ---- Buttons -------------------------------------------------------------------- */
+QPushButton[role="secondary"] {
+    background: $surface;
+    color: $text;
+    border: 1px solid $text;
+    padding: 6px 16px;
+    font-weight: 600;
+}
+QPushButton[role="secondary"]:hover {
+    background: $black;
+    color: $white;
+}
+QPushButton[role="secondary"]:pressed {
+    background: $black_hover;
+    color: $white;
+}
+QPushButton[role="secondary"]:focus {
+    border-color: $red;
+}
+QPushButton[role="secondary"]:disabled {
+    background: $disabled_bg;
+    color: $disabled_text;
+    border-color: $disabled_bg;
+}
+QPushButton[role="link"] {
+    background: transparent;
+    color: $text;
+    border: none;
+    padding: 2px 4px;
+    font-weight: 600;
+}
+QPushButton[role="link"]:hover, QPushButton[role="link"]:focus {
+    color: $red;
+}
+QPushButton[role="link"]:pressed {
+    color: $red_pressed;
+}
+QPushButton[role="link"]:disabled {
+    color: $disabled_text;
+}
+QToolButton#activityToggleButton {
+    background: transparent;
+    border: none;
+    padding: 3px;
+}
+QToolButton#activityToggleButton:hover {
+    background: $canvas;
+}
+
+/* ---- Action tiles --------------------------------------------------------------- */
+ActionTile {
+    background: $surface;
+    border: 1px solid $border;
+    border-top: 3px solid $border;
+}
+ActionTile[state="ready"]:hover {
+    border-top: 3px solid $red;
+}
+ActionTile[state="running"] {
+    border-top: 3px solid $red;
+}
+ActionTile:focus {
+    border: 1px solid $red;
+    border-top: 3px solid $red;
+}
+ActionTile QFrame[role="tileMarker"] {
+    background: $red;
+    border: none;
+}
+ActionTile QFrame[role="tileMarker"]:disabled {
+    background: $border_strong;
+}
+QLabel[role="tileTitle"] {
+    font-size: 9pt;
+    font-weight: 700;
+}
+QLabel[role="tileDescription"] {
+    color: $muted;
+}
+QLabel[role="kbd"] {
+    color: $muted;
+    border: 1px solid $border;
+    padding: 0px 6px;
+    font-size: 8pt;
+}
+QLabel[role="tilePercent"] {
+    font-weight: 600;
+}
+ActionTile QLabel:disabled {
+    color: $disabled_text;
+}
+ActionTile QLabel[role="tileNeeds"] {
+    color: $muted;
+    font-style: italic;
+}
+ActionTile QProgressBar {
+    background: $disabled_bg;
+    border: none;
+}
+ActionTile QProgressBar::chunk {
+    background: $red;
+}
+
+/* ---- File drop zone ------------------------------------------------------------- */
+FileDropZone {
+    background: $surface_alt;
+    border: 1px dashed $border_strong;
+}
+FileDropZone[state="loaded"] {
+    background: $surface;
+    border: 1px solid $border_strong;
+}
+FileDropZone[state="error"] {
+    background: $red_tint;
+    border: 1px dashed $error;
+}
+FileDropZone[dropState="valid"] {
+    background: $red_tint;
+    border: 1px dashed $red;
+}
+FileDropZone[dropState="invalid"] {
+    background: $canvas;
+    border: 1px dashed $text;
+}
+FileDropZone:disabled {
+    background: $canvas;
+    border-color: $border;
+}
+
+/* ---- Activity panel ------------------------------------------------------------- */
+ActivityPanel {
+    background: $surface;
+    border: none;
+}
+QFrame[role="statusDot"] {
+    background: $border_strong;
+    border: none;
+}
+QFrame[role="statusDot"][busy="true"] {
+    background: $red;
+}
+QPlainTextEdit#activityLog {
+    background: $surface;
+    border: none;
+    font-size: 9pt;
+    selection-background-color: $red;
+    selection-color: $white;
+}
+
+/* ---- Splitter and scroll bars --------------------------------------------------- */
+QSplitter::handle {
+    background: $border;
+}
+QSplitter::handle:hover {
+    background: $red;
+}
+QScrollBar:vertical {
+    background: transparent;
+    width: 10px;
+    margin: 0px;
+}
+QScrollBar::handle:vertical {
+    background: $border_strong;
+    min-height: 28px;
+}
+QScrollBar:horizontal {
+    background: transparent;
+    height: 10px;
+    margin: 0px;
+}
+QScrollBar::handle:horizontal {
+    background: $border_strong;
+    min-width: 28px;
+}
+QScrollBar::handle:hover {
+    background: $muted;
+}
+QScrollBar::add-line, QScrollBar::sub-line {
+    width: 0px;
+    height: 0px;
+}
+QScrollBar::add-page, QScrollBar::sub-page {
+    background: transparent;
+}
