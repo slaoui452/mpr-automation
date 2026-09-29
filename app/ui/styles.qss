@@ -1,0 +1,222 @@
+/* Société Générale inspired theme. Dollar tokens are resolved by theme.load_stylesheet(). */
+
+QWidget {
+    color: $text;
+}
+
+QMainWindow, QWidget#Content {
+    background: $surface;
+}
+
+/* ---- Header ------------------------------------------------------------- */
+QWidget#HeaderBar {
+    background: $black;
+}
+QLabel#AppCompany {
+    color: $white;
+    font-size: 8pt;
+    font-weight: 700;
+}
+QLabel#AppTitle {
+    color: $white;
+    font-size: 15pt;
+    font-weight: 600;
+}
+QLabel#AppVersion {
+    color: $border_strong;
+    font-size: 8pt;
+}
+QFrame#AccentLine {
+    background: $red;
+    border: none;
+}
+
+/* ---- Cards -------------------------------------------------------------- */
+QFrame#Card {
+    background: $white;
+    border: 1px solid $border;
+}
+QFrame#Card[dragActive="true"] {
+    background: $red_tint;
+    border: 1px dashed $red;
+}
+QLabel#CardTitle {
+    font-size: 9pt;
+    font-weight: 700;
+    background: transparent;
+}
+QLabel#CardHint {
+    color: $muted;
+    font-size: 9pt;
+    background: transparent;
+}
+
+/* ---- Inputs ------------------------------------------------------------- */
+QDateEdit, QComboBox, QLineEdit {
+    background: $white;
+    border: 1px solid $border_strong;
+    padding: 6px 10px;
+    min-height: 22px;
+    selection-background-color: $red;
+    selection-color: $white;
+}
+QDateEdit:hover, QComboBox:hover, QLineEdit:hover {
+    border-color: $text;
+}
+QDateEdit:focus, QComboBox:focus, QLineEdit:focus {
+    border: 1px solid $red;
+}
+QDateEdit:disabled, QComboBox:disabled, QLineEdit:disabled {
+    background: $surface;
+    color: $disabled_text;
+    border-color: $border;
+}
+QLineEdit[state="error"] {
+    border: 1px solid $red;
+    background: $red_tint;
+}
+QDateEdit::drop-down, QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: center right;
+    width: 28px;
+    border: none;
+    background: transparent;
+}
+QDateEdit::down-arrow, QComboBox::down-arrow {
+    image: url($assets/chevron_down.svg);
+    width: 12px;
+    height: 8px;
+}
+QComboBox[placeholder="true"] {
+    color: $muted;
+}
+QComboBox QAbstractItemView {
+    background: $white;
+    border: 1px solid $border_strong;
+    outline: 0;
+    selection-background-color: $red;
+    selection-color: $white;
+}
+
+/* ---- Date message ------------------------------------------------------- */
+QLabel#Badge {
+    color: $white;
+    font-size: 8pt;
+    font-weight: 700;
+    padding: 3px 8px;
+}
+QLabel#Badge[level="today"]  { background: $red; }
+QLabel#Badge[level="past"]   { background: $black; }
+QLabel#Badge[level="future"] { background: $muted; }
+QLabel#DateMessage {
+    font-weight: 600;
+    background: transparent;
+}
+
+/* ---- File info ---------------------------------------------------------- */
+QLabel#FileInfo {
+    color: $muted;
+    font-size: 9pt;
+    background: transparent;
+}
+QLabel#FileInfo[level="success"] { color: $success; }
+QLabel#FileInfo[level="error"]   { color: $red; }
+
+/* ---- Calendar popup ----------------------------------------------------- */
+QCalendarWidget QWidget#qt_calendar_navigationbar {
+    background: $black;
+}
+QCalendarWidget QToolButton {
+    color: $white;
+    background: transparent;
+    font-weight: 600;
+    padding: 4px 8px;
+    border: none;
+}
+QCalendarWidget QToolButton:hover {
+    background: $red;
+}
+QCalendarWidget QMenu {
+    background: $white;
+    color: $text;
+}
+QCalendarWidget QSpinBox {
+    background: $white;
+    color: $text;
+}
+QCalendarWidget QAbstractItemView:enabled {
+    background: $white;
+    color: $text;
+    selection-background-color: $red;
+    selection-color: $white;
+}
+QCalendarWidget QAbstractItemView:disabled {
+    color: $disabled_text;
+}
+
+/* ---- Buttons ------------------------------------------------------------ */
+QPushButton {
+    border: 1px solid transparent;
+    padding: 8px 20px;
+    min-width: 96px;
+    font-weight: 600;
+}
+QPushButton[variant="primary"] {
+    background: $red;
+    color: $white;
+}
+QPushButton[variant="primary"]:hover   { background: $red_hover; }
+QPushButton[variant="primary"]:pressed { background: $red_pressed; }
+QPushButton[variant="primary"]:focus   { border: 2px solid $black; }
+
+QPushButton[variant="secondary"] {
+    background: $black;
+    color: $white;
+}
+QPushButton[variant="secondary"]:hover   { background: $black_hover; }
+QPushButton[variant="secondary"]:pressed { background: $black; }
+QPushButton[variant="secondary"]:focus   { border: 2px solid $red; }
+
+QPushButton[variant="ghost"] {
+    background: $white;
+    color: $text;
+    border: 1px solid $border_strong;
+}
+QPushButton[variant="ghost"]:hover   { border-color: $text; background: $surface; }
+QPushButton[variant="ghost"]:pressed { background: $border; }
+QPushButton[variant="ghost"]:focus   { border: 2px solid $red; }
+
+QPushButton[variant="primary"]:disabled,
+QPushButton[variant="secondary"]:disabled,
+QPushButton[variant="ghost"]:disabled {
+    background: $disabled_bg;
+    color: $disabled_text;
+    border: 1px solid $disabled_bg;
+}
+
+/* ---- Footer & status bar ------------------------------------------------ */
+QWidget#Footer {
+    background: $white;
+    border-top: 1px solid $border;
+}
+QStatusBar {
+    background: $white;
+    border-top: 1px solid $border;
+}
+QStatusBar::item {
+    border: none;
+}
+QLabel#StatusLabel {
+    color: $muted;
+    padding: 2px 8px;
+}
+QLabel#StatusLabel[level="busy"]    { color: $text; }
+QLabel#StatusLabel[level="success"] { color: $success; }
+QLabel#StatusLabel[level="error"]   { color: $red; font-weight: 600; }
+
+QToolTip {
+    background: $black;
+    color: $white;
+    border: none;
+    padding: 4px 8px;
+}
